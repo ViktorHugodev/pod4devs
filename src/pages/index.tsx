@@ -3,6 +3,7 @@ import Head from 'next/head';
 import Image from "next/image";
 import Link from "next/link";
 import { useContext } from "react";
+import { GridCard } from "../components/GridCard/GridCard";
 import { PlayerContext } from "../contexts/PlayerContext";
 import { api } from "../services/api";
 import styles from "../styles/homepage.module.scss";
@@ -26,13 +27,23 @@ interface Episodes {
 export default function Home({ lastEpisodes, allEpisodes }: Episodes) {
   const { playList} = useContext(PlayerContext)
   const episodeList = [...lastEpisodes, ...allEpisodes]
-  console.log(episodeList)
   return (
     <div className={styles.homepage}>
       <Head>
         <title>Podcastr</title>
       </Head>
-      <section className={styles.lastEpisodes}>
+      <section>
+        <h2>Últimos podcasts adicionados</h2>
+        {lastEpisodes.map(episode => {
+          return (
+            <div key={episode.id} className={styles.lastContent}>
+              <GridCard episode={episode}  />
+              </div>
+          )
+         
+        })}
+      </section>
+      {/* <section className={styles.lastEpisodes}>
         <h2>Últimos lançamentos</h2>
 
         
@@ -62,7 +73,7 @@ export default function Home({ lastEpisodes, allEpisodes }: Episodes) {
             );
           })}
         
-      </section>
+      </section> */}
       <section className={styles.allEpisodes}>
         <table cellSpacing={0}>
           <thead>

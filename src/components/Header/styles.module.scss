@@ -1,20 +1,24 @@
 .headerContainer {
-  background: var(--white);
+  // width: 70vw;
+  width:calc(100% - 22rem);
+  background: var(--header-bg);
   height:6.5rem;
-
+  box-shadow: 0 5px 10px 0 rgb(0 0 0 / 15%);
   display: flex;
+  position: relative;
   align-items: center;
 
   padding:2rem 4rem;
-  border-bottom: 1px solid var(--gray-100);
 
   p {
     margin-left: 2rem;
     padding: 0.25rem 0 0.25rem 2rem;
-    border-left: 1px solid var(--gray-100);
+    color:var(--links);
+    border-left: 1px solid var(--links);
   }
   span {
     margin-left:auto;
+    color:var(--links);
     text-transform: lowercase;
   }
 }

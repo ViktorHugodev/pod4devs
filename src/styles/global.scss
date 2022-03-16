@@ -2,27 +2,76 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  // max-width:1660px;
+  // margin: 0 auto;
 }
 
-:root {
+// :root {
+//   --white: #fff;
+
+//   --gray-50: #f7f8fa;
+//   --gray-100: #e6e8eb;
+//   --gray-200: #afb2b1;
+//   --gray-500: #808080;
+//   --gray-800: #494d4b;
+//   --gray-1000: #2d3436;
+
+//   --green-500: #04d361;
+
+//   --purple-300: #9f75ff;
+//   --purple-400: #9164fa;
+//   --purple-500: #8257e5;
+//   --purple-800: #6f48c9;
+//   --purple-1000: #4c3388;
+// }
+@media (prefers-color-scheme: dark) {
+  :root {
+    --header-bg: #282a36;
+    --bg: #383a59;
+    --text-light:#dfdfdb;
+    --links: hsl(231, 5%, 70%);
+    --options: hsl(236, 9%, 61%);
+    --borderB: hsl(235, 19%, 35%);
+    --text:#b1b1af;
+    --button:#282a36	;
+    --title: ##bd93f9;
+    --border: hsl(236, 33%, 92%);
+    --player-bg:#6272a4;
+  }
+}
+
+.dark {
+  
+  --header-bg: #282a36;
+  --bg: #383a59;
+  --inputColor: hsl(0, 0%, 98%);
+  --links: hsl(231, 5%, 70%);
+  --options: hsl(236, 9%, 61%);
+  --borderB: hsl(235, 19%, 35%);
+  --text:#b1b1af;
+  --button:#282a36	;
+  --title: ##bd93f9;
+  --border: hsl(236, 33%, 92%);
+  --player-bg:#6272a4;
+}
+.light {
+  --text-light:#f7f7ee;
+  --header-bg: #d4d7dd;
   --white: #fff;
-
-  --gray-50: #f7f8fa;
-  --gray-100: #e6e8eb;
-  --gray-200: #afb2b1;
-  --gray-500: #808080;
-  --gray-800: #494d4b;
-
-  --green-500: #04d361;
-
-  --purple-300: #9f75ff;
-  --purple-400: #9164fa;
-  --purple-500: #8257e5;
-  --purple-800: #6f48c9;
+  --borderB: hsl(233, 20%, 82%);
+  --bg: #e4e8f0;
+  --title: hsl(236, 33%, 92%);
+  --text: hsl(234, 11%, 52%);
+  --options: hsl(234, 11%, 52%);
+  --links: #44475a;
+  --inputColor: hsl(235, 24%, 19%);
+  --todo-bg: hsl(235, 21%, 11%);
+  --button:#fff;
+  --player-bg:#6272a4;
 }
 
 body {
-  background: var(--gray-50);
+  background: var(--bg);
 }
 
 @media (max-width: 1080px) {
@@ -37,14 +86,22 @@ body {
   }
 }
 
-body, input, textarea, button {
+body,
+input,
+textarea,
+button {
   font: 500 1rem Inter, sans-serif;
-  color: var(--gray-500);
+  color: var(--text);
 }
-h1, h2, h3, h4, h5,h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 600;
   font-family: Lexand, sans-serif;
-  color: var(--gray-800)
+  color: var(--links);
 }
 h1 {
   font-size: 2rem;

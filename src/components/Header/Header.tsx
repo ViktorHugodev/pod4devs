@@ -1,4 +1,5 @@
 import format from 'date-fns/format';
+import { ThemeSwitcher } from '../ThemeSwitcher/ThemeSwitcher';
 import styles from './styles.module.scss'
 
 export function Header() {
@@ -13,7 +14,8 @@ export function Header() {
 
       <p>Os melhores podcats para você ouvir</p>
 
-      <span>{currentDate}</span>
+      <span>{currentDate}dd</span>
+      <ThemeSwitcher/>
     </header>
   )
 }

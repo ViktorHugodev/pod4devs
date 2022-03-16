@@ -1,0 +1,24 @@
+.cardContent {
+  display:flex;
+  border: 1px solid red;
+  align-items: center;
+  margin-bottom:1rem;
+  margin: 0 auto;
+  width:80%;
+  img {
+    flex: 1;
+    
+  }
+  .info {
+    padding:.5rem;
+    display: flex;
+    flex-direction: column;
+    strong {
+      font-size:.85rem;
+    }
+    span {
+      font-size:.75rem;
+    }
+  }
+  
+}

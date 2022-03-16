@@ -1,9 +1,11 @@
 .playerContainer {
+ 
   padding: 3rem 4rem;
-  width: 26rem;
+  width: 22rem;
   height: 100vh;
-  background: var(--purple-500);
+  background: var(--player-bg);
   position:fixed;
+  // right:calc(50% - 50%);
   right:0;
   color: var(--white);
   display: flex;
@@ -19,6 +21,7 @@
   strong {
     font-family: Lexand, sans-serif;
     font-weight: 600;
+    color:var(--text-light);
   }
 
   footer {
@@ -76,6 +79,7 @@
     display: inline-block;
     width: 4rem;
     text-align: center;
+    // color:var(--text-light);
   }
 
   .slider {

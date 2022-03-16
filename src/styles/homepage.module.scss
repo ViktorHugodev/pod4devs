@@ -1,8 +1,8 @@
 .homepage {
-  padding: 0 4rem;
+  padding: 0 2rem;
   height: calc(100% - 6.5rem);
   overflow-y: hidden;
-  width: 70vw;
+  width: 70%;
   h2 {
     margin-top: 3rem;
     margin-bottom: 1.5rem;
@@ -10,98 +10,113 @@
   ul {
     list-style: none;
   }
-  .lastEpisodes {
-    ul {
-     
-      display: grid;
-      
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
 
-      li {
-        background: var(--white);
-        border:1px solid var(--gray-100);
-        padding: 1.25rem;
-        border-radius: 1.5rem;
-        position: relative;
-        display:flex;
-        // justify-content:center;
-        align-items: center;
-        img {
-          right:1.75rem;
-          position: relative;
-          min-width: 6rem;
-        
-          border-radius: 1rem;
-        }
+  .gridContainer {
+    
+    display: flex;
+    
+    align-items: center;
+    justify-content: center;
 
-        .episodeDetails {
-          // flex: 1;
-          margin-left: 1rem;
-          a {
-            display: block;
-            color: var(--gra-800);
-            font-family: Lexand, sans-serif;
-            font-weight: 600;
-            text-decoration: none;
-            line-height:1.4;
-            &:hover {
-              text-decoration: underline;
-            }
-          }
-          p {
-            font-size:.85rem;
-            margin-top: .5rem;
-            max-width: 70%;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-          }
-          span {
-            display: inline-block;
-            
-            margin-top: .5rem;
-            font-size: .85rem;
-            &:last-child {
-              // margin-right: 2.5rem;
-            }
-          }
-          button {
-            position:absolute;
-            right: 2rem;
-            bottom: 2rem;
-            width:2.5rem;
-            height:2.5rem;
-            background: var(--white);
-            border: 1px solid var(--gray-100);
-            border-radius: .65rem;
-            font-size: 0;
-            transition:all .3s;
-            &:hover {
-              filter: brightness(0.9);
-            }
-            img{
-              width:1.5rem;
-              height:1.5rem;
-            }
-          }
-        }
-      }
-    }
+    // img {
+    //   flex: 1;
+    //   min-width:6rem;
+    // }
   }
+
+  // .lastEpisodes {
+  //   ul {
+     
+  //     display: grid;
+      
+  //     grid-template-columns: 1fr 1fr;
+  //     gap: 1.5rem;
+
+  //     li {
+  //       background: var(--white);
+  //       border:1px solid var(--gray-100);
+  //       padding: 1.25rem;
+  //       border-radius: 1.5rem;
+  //       position: relative;
+  //       display:flex;
+  //       // justify-content:center;
+  //       align-items: center;
+  //       img {
+  //         right:1.75rem;
+  //         position: relative;
+  //         min-width: 6rem;
+        
+  //         border-radius: 1rem;
+  //       }
+
+  //       .episodeDetails {
+  //         // flex: 1;
+  //         margin-left: 1rem;
+  //         a {
+  //           display: block;
+  //           color: var(--gra-800);
+  //           font-family: Lexand, sans-serif;
+  //           font-weight: 600;
+  //           text-decoration: none;
+  //           line-height:1.4;
+  //           &:hover {
+  //             text-decoration: underline;
+  //           }
+  //         }
+  //         p {
+  //           font-size:.85rem;
+  //           margin-top: .5rem;
+  //           max-width: 70%;
+  //           white-space: nowrap;
+  //           overflow: hidden;
+  //           text-overflow: ellipsis;
+  //         }
+  //         span {
+  //           display: inline-block;
+            
+  //           margin-top: .5rem;
+  //           font-size: .85rem;
+  //           &:last-child {
+  //             // margin-right: 2.5rem;
+  //           }
+  //         }
+  //         button {
+  //           position:absolute;
+  //           right: 2rem;
+  //           bottom: 2rem;
+  //           width:2.5rem;
+  //           height:2.5rem;
+  //           background: var(--white);
+  //           border: 1px solid var(--gray-100);
+  //           border-radius: .65rem;
+  //           font-size: 0;
+  //           transition:all .3s;
+  //           &:hover {
+  //             filter: brightness(0.9);
+  //           }
+  //           img{
+  //             width:1.5rem;
+  //             height:1.5rem;
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
   .allEpisodes {
     padding-bottom: 2rem;
-    overflow-y: scroll;
+    // overflow-y: scroll;
     table {
       width: 100%;
 
       td, th {
         padding: .75rem 1rem;
-        border-bottom: 1px solid var(--gray-100);
+        border-bottom: 1px solid var(--borderB);
       }
-
+      
       th {
-        color: var(--gray-200);
+        
+        color: var(--options);
         text-transform: uppercase;
         font-weight: 500;
         font-size: .75rem;
@@ -110,6 +125,7 @@
       }
 
       td {
+     
         font-size:0.87rem;
         img {
           width: 2.5rem;
@@ -118,7 +134,7 @@
         }
 
         a {
-          color: var(--grey-800);
+          color: var(--links);
           font-family: Lexand, sans-serif;
           font-weight: 600;
           text-decoration: none;
@@ -131,8 +147,8 @@
         button {
             width:2rem;
             height:2rem;
-            background: var(--white);
-            border: 1px solid var(--gray-100);
+            background: var(--button);
+            border: 1px solid var(--title);
             border-radius: .5rem;
             font-size: 0;
             transition:all .3s;
