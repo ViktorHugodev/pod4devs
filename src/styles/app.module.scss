@@ -1,10 +1,13 @@
 .wrapper {
+  max-height: 100vh;
   display: flex;
-  // max-width:1660px;
-  margin: 0 auto;
+  // @media(min-width: 1080px) {
+  //   display: flex;
+  // }
 
   main {
     flex: 1;
+  
   }
   
 }

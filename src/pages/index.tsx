@@ -27,36 +27,40 @@ interface Episodes {
 export default function Home({ lastEpisodes, allEpisodes }: Episodes) {
   const { playList} = useContext(PlayerContext)
   const episodeList = [...lastEpisodes, ...allEpisodes]
+
   return (
     <div className={styles.homepage}>
       <Head>
         <title>Podcastr</title>
       </Head>
-      <section>
-        <h2>Últimos podcasts adicionados</h2>
-        {lastEpisodes.map(episode => {
+      <section className={styles.gridContainer}>
+        {lastEpisodes.map((episode, index) => {
           return (
-            <div key={episode.id} className={styles.lastContent}>
-              <GridCard episode={episode}  />
-              </div>
+            <GridCard key={episode.id} episode={episode} episodeList={episodeList} index={index}/>
           )
-         
         })}
+        
       </section>
       {/* <section className={styles.lastEpisodes}>
         <h2>Últimos lançamentos</h2>
 
-        
+          <ul>
           {lastEpisodes.map((episode: EpisodesProps, index: number) => {
             return (
-              <div key={episode.id}>
+              <li key={episode.id}>
+               
                 <Image
+         
+                  className={styles.Img}
                   src={episode.thumbnail}
                   alt={episode.title}
-                  width={220}
-                  height={140}
-                  objectFit={"cover"}
+                  width={110}
+                  height={80}
+                  
+                  objectFit={"fill"}
                 />
+              
+                
                 <div className={styles.episodeDetails}>
 									<Link href={`/episode/${episode.id}`}>
 										<a>{episode.title}</a>
@@ -69,9 +73,10 @@ export default function Home({ lastEpisodes, allEpisodes }: Episodes) {
                     <img src="/play-green.svg" alt="Tocar música" />
                   </button>
                 </div>
-              </div>
+              </li>
             );
           })}
+          </ul>
         
       </section> */}
       <section className={styles.allEpisodes}>
@@ -105,7 +110,7 @@ export default function Home({ lastEpisodes, allEpisodes }: Episodes) {
 									</Link>
                   </td>
                   <td>{episode.members}</td>
-                  <td style={{ width: 100, fontSize: ".75rem" }}>
+                  <td style={{ width: 80, fontSize: ".75rem" }}>
                     {episode.publishedAt}
                   </td>
                   <td>{episode.durationString}</td>
@@ -120,6 +125,7 @@ export default function Home({ lastEpisodes, allEpisodes }: Episodes) {
           </tbody>
         </table>
       </section>
+     
     </div>
   );
 }

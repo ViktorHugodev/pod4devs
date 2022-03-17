@@ -26,6 +26,7 @@ export function Player() {
   const episode = episodeList[currentEpisodeIndex];
   const audioRef = useRef<HTMLAudioElement>(null);
   const [progress, setProgress] = useState(0);
+  const[showPlayer, setShowPlayer] = useState(false)
 
   useEffect(() => {
     if (!audioRef.current) {
@@ -51,19 +52,24 @@ export function Player() {
   }
 
   return (
-    <div className={styles.playerContainer}>
+    <div className={ showPlayer ? `${styles.playerContainer} ${styles.active}` : styles.playerContainer}>
+      <button className={styles.showPlayerButton} onClick={() => {setShowPlayer(!showPlayer)}}>
+       
+          <img src="/playing.svg" alt=" Tocando agora"/>
+        
+      </button>
       <header>
         <img src="/playing.svg" alt="Tocando aogra" />
         <strong>Tocando agora </strong>
       </header>
 
       {episode ? (
-        <div className={styles.playingEpisode}>
+        <div className={styles.currentEpisode}>
           <Image
             src={episode.thumbnail}
             alt={episode.title}
-            width={400}
-            height={400}
+            width={592}
+            height={592}
             objectFit={"cover"}
           />
           <strong>{episode.title}</strong>
