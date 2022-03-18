@@ -14,7 +14,7 @@ export function Header() {
 
       <p>Os melhores podcats para você ouvir</p>
 
-      <span>{currentDate}dd</span>
+      <span>{currentDate}</span>
       <ThemeSwitcher/>
     </header>
   )

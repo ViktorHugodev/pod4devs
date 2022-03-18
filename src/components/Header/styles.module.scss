@@ -4,6 +4,12 @@
   @media (max-width: 1080px) {
     width: 100%;
    }
+
+  @media (max-width:720px) {
+    p {
+      display:none;
+    }
+  }
   background: var(--header-bg);
   height:6.5rem;
   box-shadow: 0 5px 10px 0 rgb(0 0 0 / 15%);
