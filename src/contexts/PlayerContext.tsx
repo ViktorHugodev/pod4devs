@@ -21,7 +21,7 @@ interface PlayerContextData {
   setStatePlaying: (state: boolean) => void;
   handleTogglePlayPause: () => void;
   handleToggleLooping: () => void
-  handlePlay: (episode: Episode) => void;
+  handlePlay: any
   playList: (list: Episode[], index: number) => void;
   handlePlayPrevius: () => void;
   handlePlayNext: () => void;
@@ -41,6 +41,7 @@ export function PlayerContextProvider({
   const [isPlaying, setIsPlaying] = useState(false);
   const [isLooping, setIsLooping] = useState(false)
   const [isShuffling, setIsShuffling] = useState(false)
+
   function handlePlay(episode: Episode) {
     setEpisodeList([episode]);
     setCurrentEpisodeIndex(0);
@@ -58,7 +59,7 @@ export function PlayerContextProvider({
   function playList(list: Episode[], index: number) {
     setEpisodeList(list);
     setCurrentEpisodeIndex(index);
-    setIsPlaying(true);
+    setIsPlaying(!isPlaying);
   }
   const hasPrevius = currentEpisodeIndex > 0
   const hasNext = (currentEpisodeIndex + 1) < episodeList.length
