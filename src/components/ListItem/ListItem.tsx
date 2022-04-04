@@ -1,11 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { PlayerContext } from "../../contexts/PlayerContext";
 import styles from './listitem.module.scss';
 export function ListItem({episode, episodeList, index}) {
-  const { playList} = useContext(PlayerContext)
+  const { playList, isPlaying, handleTogglePlayPause} = useContext(PlayerContext)
+  const [playEpisodeId, setPlayEpisodeId] = useState<string>('');
+
   return (
 
     <div className={styles.cardContent}>
@@ -26,9 +28,23 @@ export function ListItem({episode, episodeList, index}) {
       <span>{episode.publishedAt} - {episode.durationString}m</span>
    
 
-      <button type="button" onClick={() => playList(episodeList, index)}>
-        <img src="/play-green.svg" alt="Tocar música" />
-      </button>
+      <button
+          type="button"
+          onClick={() => {
+            if (isPlaying && episode.id === playEpisodeId) {
+              handleTogglePlayPause();
+            } else {
+              playList(episodeList, index);
+              setPlayEpisodeId(episode.id);
+            }
+          }}
+        >
+          {isPlaying && episode.id === playEpisodeId? (
+            <img src="/pause-green.svg" alt="Pausar episódio" />
+          ) : (
+            <img src="/play-green.svg" alt="Tocar episódio" />
+          )}
+        </button>
     </div>
   </div>
   );

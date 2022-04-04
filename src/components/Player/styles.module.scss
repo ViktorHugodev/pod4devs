@@ -48,51 +48,10 @@
       transform: translateX(0%);
     }
   }
-  // @media (max-width: 680px) {
-    
-  //   position: fixed;
-  //   bottom: 0;
-  //   right: 0;
-  //   left: 0;
-  //   top:calc(85%);
-  //   width: 100%;
-  //   height:11rem;
-  //   background: var(--purple-500);
-  //   header {
-  //     img {
-  //       display: none;
-  //     }
-  //   }
-  //   strong {
-  //     display: none;
-
-  //   }
-  //   .currentEpisode {
-     
-  //       display: none;
-  //     strong {
-  //       display:block;
-  //     }
-  //   }
-  //   .emptyPlayer {
-  //     display: none;
-  //   }
-  //   .showPlayerButton {
-  //     display: none;
-  //     // transform: translateX(-100%);
-  //   }
-  //   .buttons {
-  //     position: fixed;
-  //     top: calc(50% - 50%);
-  //     left: calc(50% - 25%);
-  //     z-index: 1;
-  //   }
-
-  // }
+  
   @media (min-width: 1080px) {
     .showPlayerButton {
       display: none;
-      // transform: translateX(-100%);
     }
 
   }
@@ -217,10 +176,10 @@
     }
 
     &.playButton {
-      width: 4rem;
+      min-width: 3rem;
       height: 4rem;
       border-radius: 1rem;
-      background:var(--player-bg);
+      background:#04D361;
 
       &:hover:not(:disabled) {
         filter: brightness(0.95);

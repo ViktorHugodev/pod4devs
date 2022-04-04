@@ -32,7 +32,7 @@ export default function Home({ lastEpisodes, allEpisodes }: Episodes) {
   return (
     <div className={styles.homepage}>
       <Head>
-        <title>Podcastr</title>
+        <title>Pod4Devs</title>
       </Head>
       <section >
         <h2>Adicionados recentemente</h2>
@@ -105,5 +105,3 @@ export const getStaticProps: GetStaticProps = async () => {
     revalidate: 60 * 60 * 24,
   };
 };
-//Posso adicionar esses podcasts direto do YouTube, vou tentar utilizar o meio de apenas audio e o meio de video tbm.
-//Já tenhp a API meio pronta do Next, ajudaria muito adicionar esses podcasts

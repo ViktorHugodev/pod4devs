@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { PlayerContext } from "../../contexts/PlayerContext";
 import styles from "./gridcard.module.scss";
 interface EpisodesProps {
@@ -21,7 +21,9 @@ interface GridCard {
 }
 
 export function GridCard({ episode, episodeList, index }: GridCard) {
-  const { playList } = useContext(PlayerContext);
+  const { playList, handleTogglePlayPause, isPlaying } =
+    useContext(PlayerContext);
+  const [playEpisodeId, setPlayEpisodeId] = useState("");
   return (
     <div className={styles.cardContent}>
       <div className={styles.image}>
@@ -38,11 +40,26 @@ export function GridCard({ episode, episodeList, index }: GridCard) {
           <a>{episode?.title}</a>
         </Link>
         <p>{episode?.members}</p>
-        <span>{episode.publishedAt} - {episode.durationString}m</span>
-     
+        <span>
+          {episode.publishedAt} - {episode.durationString}m
+        </span>
 
-        <button type="button" onClick={() => playList(episodeList, index)}>
-          <img src="/play-green.svg" alt="Tocar música" />
+        <button
+          type="button"
+          onClick={() => {
+            if (isPlaying && episode.id === playEpisodeId) {
+              handleTogglePlayPause();
+            } else {
+              playList(episodeList, index);
+              setPlayEpisodeId(episode.id);
+            }
+          }}
+        >
+          {isPlaying && episode.id === playEpisodeId? (
+            <img src="/pause-green.svg" alt="Pausar episódio" />
+          ) : (
+            <img src="/play-green.svg" alt="Tocar episódio" />
+          )}
         </button>
       </div>
     </div>
