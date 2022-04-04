@@ -70,7 +70,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
       _order: "desc",
     },
   });
-  const paths = data.map(episode => {
+  const paths = data.episodes.map(episode => {
     return {
       params: {
         id: episode.id
@@ -90,7 +90,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   const { data } = await api.get(`/`);
 
-  const episodeInfo = data.filter(episode => {
+  const episodeInfo = data.episodes.filter(episode => {
     if(episode.id === id) {
       
       return {

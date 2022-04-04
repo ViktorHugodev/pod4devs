@@ -80,7 +80,7 @@ export const getStaticProps: GetStaticProps = async () => {
   });
   // const {data} = await api.get('')
 
-  const episodesArray = data.map((episode) => {
+  const episodesArray = data.episodes.map((episode) => {
     return {
       id: episode.id,
       title: episode.title,
