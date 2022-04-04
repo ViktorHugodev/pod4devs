@@ -70,15 +70,16 @@ export default function Home({ lastEpisodes, allEpisodes }: Episodes) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const { data } = await api.get("episodes", {
-    params: {
-      _limit: 12,
-      _sort: "published_at",
-      _order: "desc",
-    },
-  });
-
-  const episodes = data.map((episode) => {
+  // const { data } = await api.get("episodes", {
+  //   params: {
+  //     _limit: 12,
+  //     _sort: "published_at",
+  //     _order: "desc",
+  //   },
+  // });
+  const response = await fetch("https://raw.githubusercontent.com/ViktorHugodev/pod4devs/main/server.json")
+  const {episodes} = await response.json()
+  const episodesArray = episodes.map((episode) => {
     return {
       id: episode.id,
       title: episode.title,
@@ -95,8 +96,9 @@ export const getStaticProps: GetStaticProps = async () => {
       duration:episode.file.duration
     };
   });
-  const lastEpisodes = episodes.slice(0, 2);
-  const allEpisodes = episodes.slice(2, episodes.length);
+  console.log(episodesArray)
+  const lastEpisodes = episodesArray.slice(0, 2);
+  const allEpisodes = episodesArray.slice(2, episodes.length);
   return {
     props: {
       lastEpisodes,
