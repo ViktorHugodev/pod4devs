@@ -1,4 +1,3 @@
-import format from 'date-fns/format';
 import { ThemeSwitcher } from '../ThemeSwitcher/ThemeSwitcher';
 import styles from './styles.module.scss'
 
@@ -10,7 +9,7 @@ export function Header() {
   })
   return (
     <header className={styles.headerContainer}>
-      <img src="/logo.svg" alt="Logo podcastr" />
+      <img src="/pod4devs.svg" alt="Logo podcastr" />
 
       <p>Os melhores podcats para você ouvir</p>
 
