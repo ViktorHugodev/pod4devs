@@ -25,7 +25,6 @@ interface Episode {
 
 export default function Episode({ episode }: Episode) {
   const {handlePlay, playList} = useContext(PlayerContext)
-  console.log(episode)
   return (
     <div className={styles.episode}>
        <Head>
@@ -70,15 +69,13 @@ export const getStaticPaths: GetStaticPaths = async () => {
       _order: "desc",
     },
   });
-  const paths = data.episodes.map(episode => {
+  const paths = data.map(episode => {
     return {
       params: {
         id: episode.id
       }
     }
   })
-  console.log('path', paths)
-  console.log('data', data)
   return {
     paths,
     fallback: "blocking",
@@ -90,7 +87,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   const { data } = await api.get(`/`);
 
-  const episodeInfo = data.episodes.filter(episode => {
+  const episodeInfo = data.filter(episode => {
     if(episode.id === id) {
       
       return {

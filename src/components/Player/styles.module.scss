@@ -19,11 +19,12 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  z-index: 4;
   // transition: 1s;
   // display:none;
   @media (max-width: 1080px) {
     position: fixed;
-    z-index: 1;
+    z-index: 4;
     top: 6.5rem;
     transform: translateX(-100%);
     left:0;
