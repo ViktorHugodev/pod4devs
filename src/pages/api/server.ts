@@ -3,6 +3,6 @@ import { NextApiRequest, NextApiResponse } from "next";
 
 function apiNext(request: NextApiRequest, response: NextApiResponse){
   
-  response.send(server.episodes)
+  response.json(server.episodes)
 }
 export default apiNext

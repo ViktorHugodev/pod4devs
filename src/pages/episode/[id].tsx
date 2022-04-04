@@ -63,7 +63,7 @@ export default function Episode({ episode }: Episode) {
   );
 }
 export const getStaticPaths: GetStaticPaths = async () => {
-  const { data } = await api.get("", {
+  const { data } = await api.get("/", {
     params: {
       _limit: 2,
       _sort: "published_at",
@@ -77,9 +77,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
       }
     }
   })
-
+  console.log('path', paths)
+  console.log('data', data)
   return {
-    paths:[],
+    paths,
     fallback: "blocking",
   };
 };
@@ -87,12 +88,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   const { id } = context.params;
 
-  const { data } = await api.get(``, {
-    params: {
-      id
-    }
-  });
-  console.log(data)
+  const { data } = await api.get(`/`);
+
   const episodeInfo = data.filter(episode => {
     if(episode.id === id) {
       
