@@ -9,7 +9,7 @@
   padding: 3rem 4rem;
   width: 22rem;
   height: 100vh;
-  z-index: 2;
+  z-index: 4;
   background: var(--purple-500);
   color: var(--white);
   position: fixed;
@@ -32,6 +32,7 @@
  
     .showPlayerButton {
       position: fixed;
+      z-index: 4;
       top: 0;
       right: 0;
       width: 5rem;
@@ -47,6 +48,7 @@
 
     &.active {
       transform: translateX(0%);
+      z-index: 4;
     }
   }
   
