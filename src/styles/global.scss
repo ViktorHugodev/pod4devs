@@ -26,18 +26,18 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --header-bg: #282a36;
-    --bg: #383a59;
-    --bg-md:#2f3150;
-    --bg-lg:#323450;
-    --inputColor: hsl(0, 0%, 98%);
-    --links: hsl(231, 5%, 70%);
-    --options: hsl(236, 9%, 61%);
-    --borderB: hsl(235, 19%, 35%);
-    --text:#b1b1af;
-    --button:#282a36	;
-    --title: #bd93f9;
-    --border: hsl(236, 33%, 92%);
-    --player-bg:#6272a4;
+  --bg: #383a59;
+  --bg-md:#2f3150;
+  --bg-lg:#323450;
+  --inputColor: hsl(0, 0%, 98%);
+  --links: hsl(231, 5%, 70%);
+  --options: hsl(236, 9%, 61%);
+  --borderB: hsl(235, 19%, 35%);
+  --text:#b1b1af;
+  --button:#282a36	;
+  --title: #bd93f9;
+  --border: hsl(236, 33%, 92%);
+  --player-bg:#6272a4;
     --purple-500: #6f51b6;
   }
 }
@@ -74,6 +74,7 @@
   --todo-bg: hsl(235, 21%, 11%);
   --button:rgb(255, 255, 255);
   --player-bg:#6272a4;
+  --purple-500: #6f51b6;
 }
 
 body {
