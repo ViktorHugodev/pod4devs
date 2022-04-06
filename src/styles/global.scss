@@ -2,30 +2,29 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-
 }
 
-// :root {
-//   --white: #fff;
-
-//   --gray-50: #f7f8fa;
-//   --gray-100: #e6e8eb;
-//   --gray-200: #afb2b1;
-//   --gray-500: #808080;
-//   --gray-800: #494d4b;
-//   --gray-1000: #2d3436;
-
-//   --green-500: #04d361;
-
-//   --purple-300: #9f75ff;
-//   --purple-400: #9164fa;
-
-//   --purple-800: #6f48c9;
-//   --purple-1000: #4c3388;
-// }
 @media (prefers-color-scheme: dark) {
   :root {
     --header-bg: #282a36;
+    --bg: #383a59;
+    --bg-md:#2f3150;
+    --bg-lg:#323450;
+    --inputColor: hsl(0, 0%, 98%);
+    --links: hsl(231, 5%, 70%);
+    --options: hsl(236, 9%, 61%);
+    --borderB: hsl(235, 19%, 35%);
+    --text:#b1b1af;
+    --white: #fff;
+    --title: #bd93f9;
+    --button:#282a36	;
+    --player-bg:#6272a4;
+    --purple-500: #6f51b6;
+  }
+}
+
+.dark {
+  --header-bg: #282a36;
   --bg: #383a59;
   --bg-md:#2f3150;
   --bg-lg:#323450;
@@ -34,46 +33,26 @@
   --options: hsl(236, 9%, 61%);
   --borderB: hsl(235, 19%, 35%);
   --text:#b1b1af;
-  --button:#282a36	;
-  --title: #bd93f9;
-  --border: hsl(236, 33%, 92%);
-  --player-bg:#6272a4;
-    --purple-500: #6f51b6;
-  }
-}
-
-// .dark {
-//   --header-bg: #282a36;
-//   --bg: #383a59;
-//   --bg-md:#2f3150;
-//   --bg-lg:#323450;
-//   --inputColor: hsl(0, 0%, 98%);
-//   --links: hsl(231, 5%, 70%);
-//   --options: hsl(236, 9%, 61%);
-//   --borderB: hsl(235, 19%, 35%);
-//   --text:#b1b1af;
-//   --button:#282a36	;
-//   --title: #bd93f9;
-//   --border: hsl(236, 33%, 92%);
-//   --player-bg:#6272a4;
-//   --purple-500: #6f51b6;
-// }
-.light {
-  --text-light:#f7f7ee;
-  --header-bg: #d4d7dd;
-  --bg-lg:#d6dbe6;
-  --bg-md: #cdd1da;
   --white: #fff;
-  --borderB: hsl(233, 20%, 82%);
-  --bg: #e4e8f0;
-  --title: hsl(236, 33%, 92%);
-  --text: #cbcfd8;
-  --options: hsl(234, 11%, 52%);
-  --links: #44475a;
-  --inputColor: hsl(235, 24%, 19%);
-  --todo-bg: hsl(235, 21%, 11%);
-  --button:rgb(255, 255, 255);
+  --title: #bd93f9;
+  --button:#282a36	;
   --player-bg:#6272a4;
+  --purple-500: #6f51b6;
+}
+.light {
+  --header-bg: #d4d7dd;
+  --bg: #e4e8f0;
+  --bg-lg: #d6dbe6;
+  --bg-md: #cdd1da;
+  --inputColor: hsl(235, 24%, 19%);
+  --links: #44475a;
+  --options: hsl(234, 11%, 52%);
+  --borderB: hsl(233, 20%, 82%);
+  --text: #cbcfd8;
+  --white: #fff;
+  --title: hsl(236, 33%, 92%);
+  --button: rgb(255, 255, 255);
+  --player-bg: #6272a4;
   --purple-500: #6f51b6;
 }
 
