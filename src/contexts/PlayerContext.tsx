@@ -1,4 +1,4 @@
-import { createContext, useState, ReactNode } from "react";
+import { createContext, useState, ReactNode, SetStateAction } from "react";
 
 interface Episode {
   title: string;
@@ -12,17 +12,19 @@ interface PlayerContextData {
   episodeList: Episode[];
   currentEpisodeIndex: number;
   isPlaying: boolean;
-  
+  setListEpisodes:any
+  listEpisodes:Episode[];
   isLooping: boolean;
   isShuffling: boolean
   hasNext: boolean;
-  
+  playEpisodeId: string;
+  setPlayEpisodeId: any
   hasPrevius: boolean;
   setStatePlaying: (state: boolean) => void;
   handleTogglePlayPause: () => void;
   handleToggleLooping: () => void
   handlePlay: any
-  playList: (list: Episode[], index: number) => void;
+  playList: (index: number) => void;
   handlePlayPrevius: () => void;
   handlePlayNext: () => void;
   handleShuffling: () => void
@@ -41,6 +43,8 @@ export function PlayerContextProvider({
   const [isPlaying, setIsPlaying] = useState(false);
   const [isLooping, setIsLooping] = useState(false)
   const [isShuffling, setIsShuffling] = useState(false)
+  const [playEpisodeId, setPlayEpisodeId] = useState<string>('');
+  const [listEpisodes, setListEpisodes] = useState([])
 
   function handlePlay(episode: Episode) {
     setEpisodeList([episode]);
@@ -56,10 +60,11 @@ export function PlayerContextProvider({
     setIsPlaying(state);
   }
 
-  function playList(list: Episode[], index: number) {
-    setEpisodeList(list);
-    setCurrentEpisodeIndex(index);
-    setIsPlaying(!isPlaying);
+  function playList(index: number) {
+    setEpisodeList(listEpisodes);
+    setCurrentEpisodeIndex(index + 2);
+    setIsPlaying(true);
+    console.log(listEpisodes)
   }
   const hasPrevius = currentEpisodeIndex > 0
   const hasNext = (currentEpisodeIndex + 1) < episodeList.length
@@ -89,6 +94,10 @@ export function PlayerContextProvider({
   return (
     <PlayerContext.Provider
       value={{
+        listEpisodes,
+        setListEpisodes,
+        playEpisodeId,
+        setPlayEpisodeId,
         handleShuffling,
         isShuffling,
         isLooping,

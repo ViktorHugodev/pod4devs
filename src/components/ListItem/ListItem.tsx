@@ -4,9 +4,9 @@ import Link from "next/link";
 import { useContext, useState } from "react";
 import { PlayerContext } from "../../contexts/PlayerContext";
 import styles from './listitem.module.scss';
-export function ListItem({episode, episodeList, index}) {
-  const { playList, isPlaying, handleTogglePlayPause} = useContext(PlayerContext)
-  const [playEpisodeId, setPlayEpisodeId] = useState<string>('');
+
+export function ListItem({episode,  index}) {
+  const { playList, isPlaying, handleTogglePlayPause, currentEpisodeIndex} = useContext(PlayerContext)
 
   return (
 
@@ -31,15 +31,14 @@ export function ListItem({episode, episodeList, index}) {
       <button
           type="button"
           onClick={() => {
-            if (isPlaying && episode.id === playEpisodeId) {
+            if (isPlaying && index === currentEpisodeIndex) {
               handleTogglePlayPause();
             } else {
-              playList(episodeList, index);
-              setPlayEpisodeId(episode.id);
+              playList(index);
             }
           }}
         >
-          {isPlaying && episode.id === playEpisodeId? (
+          {isPlaying && index === currentEpisodeIndex ? (
             <img src="/pause-green.svg" alt="Pausar episódio" />
           ) : (
             <img src="/play-green.svg" alt="Tocar episódio" />

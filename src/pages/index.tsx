@@ -1,8 +1,6 @@
 import { GetStaticProps } from "next";
 import Head from "next/head";
-import Image from "next/image";
-import Link from "next/link";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { GridCard } from "../components/GridCard/GridCard";
 import { ListItem } from "../components/ListItem/ListItem";
 import { PlayerContext } from "../contexts/PlayerContext";
@@ -27,7 +25,12 @@ interface Episodes {
 
 export default function Home({ lastEpisodes, allEpisodes }: Episodes) {
   const episodeList = [...lastEpisodes, ...allEpisodes];
+  const {setListEpisodes, listEpisodes} = useContext(PlayerContext)
+  useEffect(() => {
+    setListEpisodes([...lastEpisodes, ...allEpisodes])
 
+    console.log('listep',listEpisodes)
+  },[])
   return (
     <div className={styles.homepage}>
       <Head>
@@ -41,7 +44,6 @@ export default function Home({ lastEpisodes, allEpisodes }: Episodes) {
               <GridCard
                 key={episode.id}
                 episode={episode}
-                episodeList={episodeList}
                 index={index}
               />
             );
@@ -58,7 +60,6 @@ export default function Home({ lastEpisodes, allEpisodes }: Episodes) {
                 <ListItem
                   key={episode.id}
                   episode={episode}
-                  episodeList={episodeList}
                   index={index}
                 />
               </li>
