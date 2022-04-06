@@ -4,6 +4,24 @@
   box-sizing: border-box;
 }
 
+@media (prefers-color-scheme: light) {
+  :root {
+    --header-bg: #d4d7dd;
+    --bg: #e4e8f0;
+    --bg-lg: #d6dbe6;
+    --bg-md: #cdd1da;
+    --inputColor: hsl(235, 24%, 19%);
+    --links: #44475a;
+    --options: hsl(234, 11%, 52%);
+    --borderB: hsl(233, 20%, 82%);
+    --text: #cbcfd8;
+    --white: #fff;
+    --title: hsl(236, 33%, 92%);
+    --button: rgb(255, 255, 255);
+    --player-bg: #6272a4;
+    --purple-500: #6f51b6;
+  }
+}
 @media (prefers-color-scheme: dark) {
   :root {
     --header-bg: #282a36;
@@ -23,7 +41,8 @@
   }
 }
 
-body.dark {
+
+.dark {
   --header-bg: #282a36;
   --bg: #383a59;
   --bg-md:#2f3150;
@@ -39,7 +58,7 @@ body.dark {
   --player-bg:#6272a4;
   --purple-500: #6f51b6;
 }
-body.light {
+.light {
   --header-bg: #d4d7dd;
   --bg: #e4e8f0;
   --bg-lg: #d6dbe6;
