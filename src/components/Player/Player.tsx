@@ -24,7 +24,7 @@ export function Player() {
     isLooping,
     setStatePlaying,
   } = useContext(PlayerContext);
-  const episode = listEpisodes[currentEpisodeIndex];
+  const episode = episodeList[currentEpisodeIndex];
   const audioRef = useRef<HTMLAudioElement>(null);
   const [progress, setProgress] = useState(0);
   const[showPlayer, setShowPlayer] = useState(false)
