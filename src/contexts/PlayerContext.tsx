@@ -62,9 +62,9 @@ export function PlayerContextProvider({
 
   function playList(index: number) {
     setEpisodeList(listEpisodes);
-    setCurrentEpisodeIndex(index + 2);
+    setCurrentEpisodeIndex(index);
     setIsPlaying(true);
-    console.log(listEpisodes)
+    
   }
   const hasPrevius = currentEpisodeIndex > 0
   const hasNext = (currentEpisodeIndex + 1) < episodeList.length
