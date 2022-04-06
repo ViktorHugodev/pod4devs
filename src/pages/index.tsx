@@ -21,15 +21,14 @@ interface EpisodesProps {
 interface Episodes {
   lastEpisodes: EpisodesProps[];
   allEpisodes: EpisodesProps[];
+  episodesArray: EpisodesProps[]
 }
 
-export default function Home({ lastEpisodes, allEpisodes }: Episodes) {
-  const episodeList = [...lastEpisodes, ...allEpisodes];
+export default function Home({ episodesArray }: Episodes) {
   const {setListEpisodes, listEpisodes} = useContext(PlayerContext)
   useEffect(() => {
-    setListEpisodes([...lastEpisodes, ...allEpisodes])
-
-    console.log('listep',listEpisodes)
+    setListEpisodes([...episodesArray])
+    
   },[])
   return (
     <div className={styles.homepage}>
@@ -39,14 +38,18 @@ export default function Home({ lastEpisodes, allEpisodes }: Episodes) {
       <section>
         <h2>Adicionados recentemente</h2>
         <div className={styles.gridContainer}>
-          {lastEpisodes.map((episode, index) => {
-            return (
-              <GridCard
-                key={episode.id}
-                episode={episode}
-                index={index}
-              />
-            );
+          {episodesArray.map((episode, index) => {
+            if(index <= 1){
+              return (
+                <GridCard
+                  key={episode.id}
+                  episode={episode}
+                  index={index}
+                />
+              );
+            } 
+
+            
           })}
         </div>
       </section>
@@ -54,16 +57,19 @@ export default function Home({ lastEpisodes, allEpisodes }: Episodes) {
       <section className={styles.allEpisodes}>
         <h2>Todos os episódios</h2>
         <ul>
-          {allEpisodes.map((episode, index) => {
-            return (
-              <li key={episode.id}>
-                <ListItem
-                  key={episode.id}
-                  episode={episode}
-                  index={index}
-                />
-              </li>
-            );
+          {episodesArray.map((episode, index) => {
+            if(index >= 2) {
+              return (
+                <li key={episode.id}>
+                  <ListItem
+                    key={episode.id}
+                    episode={episode}
+                    index={index}
+                  />
+                </li>
+              );
+            }
+          
           })}
         </ul>
       </section>
@@ -98,12 +104,12 @@ export const getStaticProps: GetStaticProps = async () => {
       duration: episode.file.duration,
     };
   });
+
   const lastEpisodes = episodesArray.slice(0, 2);
   const allEpisodes = episodesArray.slice(2, episodesArray.length);
   return {
     props: {
-      lastEpisodes,
-      allEpisodes,
+      episodesArray,
     },
     revalidate: 60 * 60 * 24,
   };

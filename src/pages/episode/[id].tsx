@@ -24,7 +24,8 @@ interface Episode {
 }
 
 export default function Episode({ episode }: Episode) {
-  const {handlePlay, playList} = useContext(PlayerContext)
+  const {play, isPlaying, handleTogglePlayPause, playList} = useContext(PlayerContext)
+  const thisEpisode = [episode]
   return (
     <div className={styles.episode}>
        <Head>
@@ -43,8 +44,18 @@ export default function Episode({ episode }: Episode) {
           alt={episode.title}
           objectFit="cover"
         />
-        <button onClick={() => handlePlay(episode)}>
-          <img src="/play-green.svg" alt="Tocar música" />
+        <button onClick={() => {
+            if (!isPlaying ) {
+              play(thisEpisode[0]);
+            } else {
+              handleTogglePlayPause();
+            }
+          }}>
+        {isPlaying ? (
+            <img src="/pause-green.svg" alt="Pausar episódio" />
+          ) : (
+            <img src="/play-green.svg" alt="Tocar episódio" />
+          )}
         </button>
       </div>
       <header>
@@ -90,7 +101,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const episodeInfo = data.filter(episode => {
     if(episode.id === id) {
       
-      return {
+      const episodeFinal = {
         id: episode.id,
         title: episode.title,
         members: episode.members,
@@ -105,10 +116,11 @@ export const getStaticProps: GetStaticProps = async (context) => {
         durationString: convertSecondInHourMinute(Number(episode.file.duration)),
         duration: episode.file.duration
       }
-  
+      return episodeFinal
     }
   } )
-
+  
+  
   return {
     props: {
       episode: episodeInfo[0]

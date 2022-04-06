@@ -9,6 +9,7 @@ import { convertSecondInHourMinute } from "../../utils/convertHourMinute";
 
 export function Player() {
   const {
+    listEpisodes,
     episodeList,
     handleShuffling,
     isShuffling,
@@ -23,7 +24,7 @@ export function Player() {
     isLooping,
     setStatePlaying,
   } = useContext(PlayerContext);
-  const episode = episodeList[currentEpisodeIndex];
+  const episode = listEpisodes[currentEpisodeIndex];
   const audioRef = useRef<HTMLAudioElement>(null);
   const [progress, setProgress] = useState(0);
   const[showPlayer, setShowPlayer] = useState(false)
