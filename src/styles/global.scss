@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: default) {
+@media (prefers-color-scheme: dark) {
   :root {
     --header-bg: #282a36;
     --bg: #383a59;
@@ -23,7 +23,7 @@
   }
 }
 
-.dark {
+body.dark {
   --header-bg: #282a36;
   --bg: #383a59;
   --bg-md:#2f3150;
@@ -39,7 +39,7 @@
   --player-bg:#6272a4;
   --purple-500: #6f51b6;
 }
-.light {
+body.light {
   --header-bg: #d4d7dd;
   --bg: #e4e8f0;
   --bg-lg: #d6dbe6;
